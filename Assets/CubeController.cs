@@ -9,10 +9,14 @@ public class CubeController : MonoBehaviour
     //消滅位置
     private float deadLine = -10;
 
+    //課題音で追加
+    AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        //課題音で追加　コンポーネントを取得
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -37,7 +41,7 @@ public class CubeController : MonoBehaviour
         }
         else {
             Debug.Log("ブロックor地面に当たった");
-            GetComponent<AudioSource>().volume = 1;
+            audioSource.Play();
         }
     }
 }
