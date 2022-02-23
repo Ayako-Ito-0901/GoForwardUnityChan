@@ -27,5 +27,17 @@ public class CubeController : MonoBehaviour
         if(transform.position.x < this.deadLine) {
             Destroy(gameObject);
         }
+
+    }
+
+    //課題で追加
+    void OnCollisionEnter2D(Collision2D collision) {
+        if(collision.gameObject.CompareTag("UnityChan")) {
+            Debug.Log("ユニティちゃんに当たった");
+        }
+        else {
+            Debug.Log("ブロックor地面に当たった");
+            GetComponent<AudioSource>().volume = 1;
+        }
     }
 }
